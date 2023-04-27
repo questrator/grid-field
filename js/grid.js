@@ -8,7 +8,7 @@ grid.addEventListener("mousedown", () => isMouseDown = true);
 grid.addEventListener("mouseup", () => isMouseDown = false);
 const playButton = document.querySelector(".next");
 playButton.addEventListener("click", play);
-
+let interval = 0;
 const cells = [];
 
 for (let i = 0; i < v * h; i++) {
@@ -69,9 +69,18 @@ function getAliveNeighbors(array) {
     return array.map(id => cells[id].alive).reduce((r, e) => r + e, 0);
 }
 
-function play() {
-    const s = setInterval(refreshCells, 75);
-    playButton.disabled = true;
+function play(event) {
+    if (event.target.dataset.play == 0) {
+        interval = setInterval(refreshCells, 75);
+        playButton.dataset.play = 1;
+        playButton.textContent = "Pause";
+    }
+    else {
+        playButton.dataset.play = 0;
+        clearInterval(interval);
+        playButton.textContent = "Play";
+    }
+    console.log(interval);
 }
 
 console.log(cells);
