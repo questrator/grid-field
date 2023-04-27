@@ -14,8 +14,7 @@ for (let i = 1; i <= 2501; i++) {
 
 function cellClickHandler(event) {
     if (mouseDown) {
-        if (event.target.dataset.alive == 0) event.target.dataset.alive = 1;
-        else event.target.dataset.alive = 0;
+        event.target.dataset.alive = 1;
     }    
 }
 
