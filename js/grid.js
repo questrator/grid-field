@@ -73,14 +73,11 @@ function play(event) {
     if (event.target.dataset.play == 0) {
         interval = setInterval(refreshCells, 75);
         playButton.dataset.play = 1;
-        playButton.textContent = "Pause";
+        playButton.textContent = "⏸️";
     }
     else {
         playButton.dataset.play = 0;
         clearInterval(interval);
-        playButton.textContent = "Play";
+        playButton.textContent = "▶️";
     }
-    console.log(interval);
 }
-
-console.log(cells);
