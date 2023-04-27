@@ -71,7 +71,7 @@ function getAliveNeighbors(array) {
 
 function play(event) {
     if (event.target.dataset.play == 0) {
-        interval = setInterval(refreshCells, 75);
+        interval = setInterval(refreshCells, 200);
         playButton.dataset.play = 1;
         playButton.textContent = "⏸️";
     }
